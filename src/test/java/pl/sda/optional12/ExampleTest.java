@@ -55,8 +55,20 @@ class ExampleTest  {
 
     @Test
     public void whenOrElseWorks_thenCorrect(){
+        // jeśli to drugie rozwiązanie, z wyjątkiem, to wtedy sygnatura expected z nazwą wyjątku w nazwie testu
         String name = null;
         String nameGood = Optional.ofNullable(name).orElse("Nowe imie");
+        String nameWorse = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException());
+        String nameTheWorst = Optional.ofNullable(name).orElseThrow(IllegalArgumentException::new);
+
+
+
+        Optional<String> opt = Optional.of("Wartość");
+        opt.get();
+        System.out.println(opt);
+
+
+
 //        assertEquals("Optional empty", toString());
     }
 
